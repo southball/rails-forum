@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+users = 5.times.map do
+  User.create!(
+    email: Faker::Internet.email,
+    display_name: Faker::Name.name,
+    password: "password",
+    password_confirmation: "password",
+    is_admin: false
+  )
+end
+
+boards = 5.times.map do
+  Board.create!(
+    name: Faker::Hobby.unique.activity,
+  )
+end
+
+boards.each do |board|
+  20.times do
+    post = Post.create!(
+      title: Faker::Lorem.words(number: 5).join(" "),
+      body: Faker::Lorem.paragraphs(number: 3).join("\n"),
+      board: board,
+      author: users.sample
+    )
+  end
+end

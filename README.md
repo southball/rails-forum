@@ -1,5 +1,10 @@
 # Forum
 
+## Screenshots
+
+![Boards](./screenshot/boards.png)
+![Posts](./screenshot/posts.png)
+
 ## ER Diagram
 
 ```mermaid
