@@ -1,0 +1,20 @@
+<div class="post">
+  <h1 class="post__title"><%= @post.title %></h1>
+  <p><%= @post.body %></p>
+</div>
+<h2>Comments</h2>
+<div class="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <span class="comment__author"><%= comment.author.display_name %></span>
+      <span class="comment__date"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+      <p class="comment__body"><%= comment.body %></p>
+    </div>
+  <% end %>
+</div>
+<h2>Add comment</h2>
+<% if user_signed_in? %>
+  <%= render "comments/form", locals: { comment: Comment.new(post: @post) } %>
+<% else %>
+  <p>Please sign in to add a comment.</p>
+<% end %>

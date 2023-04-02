@@ -1,0 +1,21 @@
+<div class="header">
+  <div class="header__content">
+    <div class="header__site-name">
+      <span class="header__site-name-text">
+        <%= link_to "Forum", root_path %>
+      </span>
+    </div>
+    <div class="header__links">
+      <%= link_to "Home", root_path, class: "header__link" %>
+      <%= link_to "Boards", boards_path, class: "header__link" %>
+    </div>
+    <div class="header__spacer"></div>
+    <div class="header__user-info">
+      <% if user_signed_in? %>
+        Welcome, <%= link_to current_user.display_name, edit_user_registration_path(current_user) %>. <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+      <% else %>
+        Welcome, guest. <%= link_to "Sign in", new_user_session_path %> / <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

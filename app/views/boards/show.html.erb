@@ -1,0 +1,21 @@
+<h1><%= @board.name %></h1>
+<div class="create-post">
+  <%= link_to "Create Post", new_post_path(board: @board.id), class: "create-post__link" %>
+</div>
+<% unless @posts.empty? %>
+  <div class="posts">
+    <ul class="posts__list">
+      <% @posts.each do |post| %>
+        <li class="posts__item">
+          <a class="posts__item-link" href="<%= post_path(post) %>">
+            <span class="posts__item-title"><%= post.title %></span>
+            <span class="posts__item-author"><%= post.author.display_name %></span>
+            <div class="posts__item-clearfix"></div>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <p>There are no posts yet.</p>
+<% end %>

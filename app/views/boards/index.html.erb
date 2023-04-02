@@ -1,0 +1,15 @@
+<h1 class="heading">Boards</h1>
+<% if current_user&.is_admin %>
+  <div class="create-board">
+    <%= link_to "Create Board", new_board_path, class: "create-board__link" %>
+  </div>
+<% end %>
+<div class="boards">
+  <ul class="boards__list">
+    <% @boards.each do |board| %>
+      <li class="boards__item">
+        <%= link_to board.name, board_path(board), class: "boards__item-link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

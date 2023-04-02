@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  board: one
+  author: one
+  title: MyString
+  body: MyString
+  timestamps: MyString
+
+two:
+  board: two
+  author: two
+  title: MyString
+  body: MyString
+  timestamps: MyString
